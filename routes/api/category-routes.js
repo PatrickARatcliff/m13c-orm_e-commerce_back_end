@@ -6,7 +6,7 @@ const { Category, Product } = require('../../models');
 router.get('/', async (req, res) => {
   // find all categories
   try {
-    const categoryData = await Category.findAll({ 
+    const categoryData = await Category.findAll({
       // be sure to include its associated Products
       include: [{ model: Product, as: 'category_products' }]
     });
@@ -47,6 +47,17 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
+  const updatedCategory = await Category.update(
+    {
+      category_name: req.body.category_name,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    },
+  );
+  req.json(updatedCategory);
 });
 
 router.delete('/:id', async (req, res) => {
