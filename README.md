@@ -20,16 +20,16 @@
 - GIVEN a functional Express.js API, WHEN I add my database name, MySQL username, and MySQL password to an environment variable file, THEN I am able to connect to a database using Sequelize. WHEN I enter schema and seed commands, THEN a development database is created and is seeded with test data. WHEN I enter the command to invoke the application, THEN my server is started and the Sequelize models are synced to the MySQL database. WHEN I open API GET routes in Insomnia for categories, products, or tags, THEN the data for each of these routes is displayed in a formatted JSON. WHEN I test API POST, PUT, and DELETE routes in Insomnia, THEN I am able to successfully create, update, and delete data in my database.
   
 ## Installation Instructions
-- This application requires "dotenv": "^8.2.0","express": "^4.17.1","mysql2": "^2.1.0","sequelize": "^5.21.7". Simply copy the the repo and run "npm i" command from your integrated terminal. You should see the node modules directory populate under the repo used for the integrated terminal. Using mySQL run schema.sql from the db folder, exit, and enter “run npm seed” from your terminal.
+- This application requires "dotenv": "^8.2.0", "express": "^4.17.1", "mysql2": "^2.1.0", "sequelize": "^5.21.7". Simply copy the repo and run "npm i" command from your integrated terminal. You should see the node modules directory populate under the repo used for the integrated terminal. Using mySQL, run "source db/schema.sql", exit, and enter “npm run seed” from your terminal.
   
 ## Usage Information
 - To use, simply open m13c-orm_e-commerce_back_end directory with the integrated terminal/bash. Create a .env file in the directory, enter: 
 
-DB_NAME='ecommerce_db’ 
-DB_USER=‘<your mysql username>’ 
-DB_PASSWORD=‘<your mysql password>' 
+      DB_NAME='ecommerce_db’ 
+      DB_USER=‘<your mysql username>’ 
+      DB_PASSWORD=‘<your mysql password>' 
 
-In the terminal type the command “npm run watch”  or “npm run start”. When the server is running you can create, read, update and delete data from the e-commerce database.
+- In the terminal type the command “npm run watch” or “npm run start”. When the server is running you can create, read, update and delete data from the e-commerce database.
   
 ## Contribution Guidelines
 - To contribute to this project, fork the repository at ‘https://github.com/PatrickARatcliff/m13c-orm_e-commerce_back_end',create a pull request with a description for the change and its location.
