@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { regexp } = require('sequelize/types/lib/operators');
+// const { regexp } = require('sequelize/types/lib/operators');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 const { findAll } = require('../../models/ProductTag');
 
@@ -70,21 +70,25 @@ router.post('/', async (req, res) => {
 // update product
 router.put('/:id', async (req, res) => {
   // update product data
-  try {
+  // try {
     const productData = await Product.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
+    // console.log('productData', productData);
     const productTagData = await ProductTag.findAll({
       where: {
         product_id: req.params.id,
       },
     });
+    // console.log('productTagData', productTagData);
     // get list of current tag_ids
     const productTagIds = productTagData.map(({ tag_id }) => tag_id);
+    console.log(productTagIds);
     // create filtered list of new tag_ids
-    const newProductTags = req.body.tagIds
+    console.log(req.body.tag_id);
+    const newProductTags = req.body.tag_id
       .filter((tag_id) => !productTagIds.includes(tag_id))
       .map((tag_id) => {
         return {
@@ -92,19 +96,21 @@ router.put('/:id', async (req, res) => {
           tag_id,
         };
       })
+      // console.log('newProductTags', newProductTags);
     // figure out which ones to remove
-    const productTagsToRemove = productTags
-      .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+    const productTagsToRemove = productTagData
+      .filter(({ tag_id }) => !req.body.tag_id.includes(tag_id))
       .map(({ id }) => id);
-    res.status(200).json(newProductTags);
+      // console.log('productTagsToRemove', productTagsToRemove);
+    res.status(200).json(productData);
     // run both actions
     return Promise.all([
       ProductTag.destroy({ where: { id: productTagsToRemove } }),
       ProductTag.bulkCreate(newProductTags),
     ]);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 
 });
 
