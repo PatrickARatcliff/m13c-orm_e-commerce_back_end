@@ -3,8 +3,10 @@
 # ![MIT License](https://img.shields.io/static/v1?label=license&message=MIT&color=green)
 # Date: 16/10/2022, 12:14:37 pm
 
-GutHub Repo URL: https://github.com/PatrickARatcliff/m13c-orm_e-commerce_back_end
-Demo Video URL:
+## GutHub Repo URL: https://github.com/PatrickARatcliff/m13c-orm_e-commerce_back_end
+## Demo-Video URL: https://drive.google.com/file/d/1rIw6wGzeB2fiCAmgxc0R9JzDpeS9LvpK/view
+
+![screenshot-1](./src/9E9E78F2-83B5-47A0-ADF6-837E3C754561.jpeg)
   
 ## Table of Contents
 - [Project Description](#project-description)
